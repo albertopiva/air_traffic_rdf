@@ -51,13 +51,15 @@ In this section we add a smart guide to explain how run the developed system.
 If you do not want to run the whole system and you want only import the serialized (ttl) files into GraphDB skip
  this section and go to section 2.  
  
-* Unzip "data.zip" file into aritrafficDB folder to get all the csv files;
+* Unzip "data.zip" file into aritrafficDB folder to get all the csv files (download from Google Drive);
 * Run the "populateAirtrafficRDFdb" Python Notebook (note: you need rdflib library installed).  
 Note that you have to run the first 3 cells and then you can decide if you want to run all the section or only some of them.
 
 **2. Run GraphDB database**  
 
-* If you have skipped the section 1 you have to unzip "rdf.zip" file into aritrafficDB folder to get all the serialized files (ttl)
+* If you have skipped the section 1 you have to unzip "rdf.zip" file (download from Google Drive) into aritrafficDB folder to get all the serialized files (ttl)
  otherwise they have been generated in section 1;  
 * Open GraphDB and create a new database;  
 * Import all the ttl files into the rdf folder and the ontology "airtrafficOntology" and enjoy!
+
+Google Drive: https://drive.google.com/drive/folders/1ae9L03S-O-izjrIrumInJ-431p6zqwG0?usp=share_link
