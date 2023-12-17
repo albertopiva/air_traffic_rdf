@@ -1,0 +1,430 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.unipd.albertopiva.it/db2/airtrafficOntology#"
+     xml:base="http://www.unipd.albertopiva.it/db2/airtrafficOntology"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:ato="http://www.unipd.albertopiva.it/db2/airtrafficOntology#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:foaf="http://xmlns.com/foaf/0.1/"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+     xmlns:terms="http://purl.org/dc/terms/">
+    <owl:Ontology rdf:about="http://www.unipd.albertopiva.it/db2/airtrafficOntology">
+        <owl:imports rdf:resource="http://eulersharp.sourceforge.net/2003/03swap/countries"/>
+        <dc:creator rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Alberto Piva - alberto.piva.8@studenti.unipd.it</dc:creator>
+        <dc:creator rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Gianmarco Prando - gianmarco.prando@studenti.unipd.it</dc:creator>
+        <dc:creator rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Laura Menotti - laura.menotti@studenti.unipd.it</dc:creator>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.unipd.albertopiva.it/db2/airtrafficOntology#arrives -->
+
+    <owl:ObjectProperty rdf:about="http://www.unipd.albertopiva.it/db2/airtrafficOntology#arrives">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdfs:domain rdf:resource="http://www.unipd.albertopiva.it/db2/airtrafficOntology#Flight"/>
+        <rdfs:domain>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.unipd.albertopiva.it/db2/airtrafficOntology#arrives"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.unipd.albertopiva.it/db2/airtrafficOntology#Airport"/>
+            </owl:Restriction>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="http://www.unipd.albertopiva.it/db2/airtrafficOntology#Airport"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.unipd.albertopiva.it/db2/airtrafficOntology#belongsTo -->
+
+    <owl:ObjectProperty rdf:about="http://www.unipd.albertopiva.it/db2/airtrafficOntology#belongsTo">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdfs:domain rdf:resource="http://www.unipd.albertopiva.it/db2/airtrafficOntology#City"/>
+        <rdfs:domain>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.unipd.albertopiva.it/db2/airtrafficOntology#belongsTo"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://sweet.jpl.nasa.gov/2.3/humanJurisdiction.owl#Country"/>
+            </owl:Restriction>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="http://sweet.jpl.nasa.gov/2.3/humanJurisdiction.owl#Country"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.unipd.albertopiva.it/db2/airtrafficOntology#builtBy -->
+
+    <owl:ObjectProperty rdf:about="http://www.unipd.albertopiva.it/db2/airtrafficOntology#builtBy">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdfs:domain rdf:resource="http://www.unipd.albertopiva.it/db2/airtrafficOntology#AircraftModel"/>
+        <rdfs:range rdf:resource="http://www.unipd.albertopiva.it/db2/airtrafficOntology#Manufacturer"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.unipd.albertopiva.it/db2/airtrafficOntology#departs -->
+
+    <owl:ObjectProperty rdf:about="http://www.unipd.albertopiva.it/db2/airtrafficOntology#departs">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdfs:domain rdf:resource="http://www.unipd.albertopiva.it/db2/airtrafficOntology#Flight"/>
+        <rdfs:domain>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.unipd.albertopiva.it/db2/airtrafficOntology#departs"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.unipd.albertopiva.it/db2/airtrafficOntology#Airport"/>
+            </owl:Restriction>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="http://www.unipd.albertopiva.it/db2/airtrafficOntology#Airport"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.unipd.albertopiva.it/db2/airtrafficOntology#hasNationality -->
+
+    <owl:ObjectProperty rdf:about="http://www.unipd.albertopiva.it/db2/airtrafficOntology#hasNationality">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.unipd.albertopiva.it/db2/airtrafficOntology#Airline"/>
+                    <rdf:Description rdf:about="http://www.unipd.albertopiva.it/db2/airtrafficOntology#Manufacturer"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="http://sweet.jpl.nasa.gov/2.3/humanJurisdiction.owl#Country"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.unipd.albertopiva.it/db2/airtrafficOntology#hasType -->
+
+    <owl:ObjectProperty rdf:about="http://www.unipd.albertopiva.it/db2/airtrafficOntology#hasType">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdfs:domain rdf:resource="http://www.unipd.albertopiva.it/db2/airtrafficOntology#Aircraft"/>
+        <rdfs:domain>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.unipd.albertopiva.it/db2/airtrafficOntology#hasType"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.unipd.albertopiva.it/db2/airtrafficOntology#AircraftModel"/>
+            </owl:Restriction>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="http://www.unipd.albertopiva.it/db2/airtrafficOntology#AircraftModel"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.unipd.albertopiva.it/db2/airtrafficOntology#located -->
+
+    <owl:ObjectProperty rdf:about="http://www.unipd.albertopiva.it/db2/airtrafficOntology#located">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdfs:domain rdf:resource="http://www.unipd.albertopiva.it/db2/airtrafficOntology#Airport"/>
+        <rdfs:domain>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.unipd.albertopiva.it/db2/airtrafficOntology#located"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.unipd.albertopiva.it/db2/airtrafficOntology#City"/>
+            </owl:Restriction>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="http://www.unipd.albertopiva.it/db2/airtrafficOntology#City"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.unipd.albertopiva.it/db2/airtrafficOntology#performedBy -->
+
+    <owl:ObjectProperty rdf:about="http://www.unipd.albertopiva.it/db2/airtrafficOntology#performedBy">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdfs:domain rdf:resource="http://www.unipd.albertopiva.it/db2/airtrafficOntology#Flight"/>
+        <rdfs:domain>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.unipd.albertopiva.it/db2/airtrafficOntology#performedBy"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.unipd.albertopiva.it/db2/airtrafficOntology#Airline"/>
+            </owl:Restriction>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="http://www.unipd.albertopiva.it/db2/airtrafficOntology#Airline"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.unipd.albertopiva.it/db2/airtrafficOntology#performs -->
+
+    <owl:ObjectProperty rdf:about="http://www.unipd.albertopiva.it/db2/airtrafficOntology#performs">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdfs:domain rdf:resource="http://www.unipd.albertopiva.it/db2/airtrafficOntology#Aircraft"/>
+        <rdfs:domain>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.unipd.albertopiva.it/db2/airtrafficOntology#performs"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.unipd.albertopiva.it/db2/airtrafficOntology#Aircraft"/>
+            </owl:Restriction>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="http://www.unipd.albertopiva.it/db2/airtrafficOntology#Flight"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.unipd.albertopiva.it/db2/airtrafficOntology#actualArrival -->
+
+    <owl:DatatypeProperty rdf:about="http://www.unipd.albertopiva.it/db2/airtrafficOntology#actualArrival">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.unipd.albertopiva.it/db2/airtrafficOntology#Flight"/>
+        <rdfs:domain>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.unipd.albertopiva.it/db2/airtrafficOntology#actualArrival"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+            </owl:Restriction>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.unipd.albertopiva.it/db2/airtrafficOntology#actualOffBlock -->
+
+    <owl:DatatypeProperty rdf:about="http://www.unipd.albertopiva.it/db2/airtrafficOntology#actualOffBlock">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.unipd.albertopiva.it/db2/airtrafficOntology#Flight"/>
+        <rdfs:domain>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.unipd.albertopiva.it/db2/airtrafficOntology#actualOffBlock"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+            </owl:Restriction>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.unipd.albertopiva.it/db2/airtrafficOntology#airlineName -->
+
+    <owl:DatatypeProperty rdf:about="http://www.unipd.albertopiva.it/db2/airtrafficOntology#airlineName">
+        <rdfs:domain rdf:resource="http://www.unipd.albertopiva.it/db2/airtrafficOntology#Airline"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.unipd.albertopiva.it/db2/airtrafficOntology#airportName -->
+
+    <owl:DatatypeProperty rdf:about="http://www.unipd.albertopiva.it/db2/airtrafficOntology#airportName">
+        <rdfs:domain rdf:resource="http://www.unipd.albertopiva.it/db2/airtrafficOntology#Airport"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.unipd.albertopiva.it/db2/airtrafficOntology#airportType -->
+
+    <owl:DatatypeProperty rdf:about="http://www.unipd.albertopiva.it/db2/airtrafficOntology#airportType">
+        <rdfs:domain rdf:resource="http://www.unipd.albertopiva.it/db2/airtrafficOntology#Airport"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.unipd.albertopiva.it/db2/airtrafficOntology#cityName -->
+
+    <owl:DatatypeProperty rdf:about="http://www.unipd.albertopiva.it/db2/airtrafficOntology#cityName">
+        <rdfs:domain rdf:resource="http://www.unipd.albertopiva.it/db2/airtrafficOntology#City"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.unipd.albertopiva.it/db2/airtrafficOntology#distance -->
+
+    <owl:DatatypeProperty rdf:about="http://www.unipd.albertopiva.it/db2/airtrafficOntology#distance">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.unipd.albertopiva.it/db2/airtrafficOntology#Flight"/>
+        <rdfs:domain>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.unipd.albertopiva.it/db2/airtrafficOntology#distance"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#negativeInteger"/>
+            </owl:Restriction>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.unipd.albertopiva.it/db2/airtrafficOntology#engineCount -->
+
+    <owl:DatatypeProperty rdf:about="http://www.unipd.albertopiva.it/db2/airtrafficOntology#engineCount">
+        <rdfs:domain rdf:resource="http://www.unipd.albertopiva.it/db2/airtrafficOntology#AircraftModel"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.unipd.albertopiva.it/db2/airtrafficOntology#engineType -->
+
+    <owl:DatatypeProperty rdf:about="http://www.unipd.albertopiva.it/db2/airtrafficOntology#engineType">
+        <rdfs:domain rdf:resource="http://www.unipd.albertopiva.it/db2/airtrafficOntology#AircraftModel"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.unipd.albertopiva.it/db2/airtrafficOntology#filedArrival -->
+
+    <owl:DatatypeProperty rdf:about="http://www.unipd.albertopiva.it/db2/airtrafficOntology#filedArrival">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.unipd.albertopiva.it/db2/airtrafficOntology#Flight"/>
+        <rdfs:domain>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.unipd.albertopiva.it/db2/airtrafficOntology#filedArrival"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+            </owl:Restriction>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.unipd.albertopiva.it/db2/airtrafficOntology#filedOffBlock -->
+
+    <owl:DatatypeProperty rdf:about="http://www.unipd.albertopiva.it/db2/airtrafficOntology#filedOffBlock">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.unipd.albertopiva.it/db2/airtrafficOntology#Flight"/>
+        <rdfs:domain>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.unipd.albertopiva.it/db2/airtrafficOntology#filedOffBlock"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+            </owl:Restriction>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.unipd.albertopiva.it/db2/airtrafficOntology#manufacturerName -->
+
+    <owl:DatatypeProperty rdf:about="http://www.unipd.albertopiva.it/db2/airtrafficOntology#manufacturerName">
+        <rdfs:domain rdf:resource="http://www.unipd.albertopiva.it/db2/airtrafficOntology#Manufacturer"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.unipd.albertopiva.it/db2/airtrafficOntology#marketSegment -->
+
+    <owl:DatatypeProperty rdf:about="http://www.unipd.albertopiva.it/db2/airtrafficOntology#marketSegment">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.unipd.albertopiva.it/db2/airtrafficOntology#Flight"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.unipd.albertopiva.it/db2/airtrafficOntology#modelName -->
+
+    <owl:DatatypeProperty rdf:about="http://www.unipd.albertopiva.it/db2/airtrafficOntology#modelName">
+        <rdfs:domain rdf:resource="http://www.unipd.albertopiva.it/db2/airtrafficOntology#AircraftModel"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.unipd.albertopiva.it/db2/airtrafficOntology#numberOfSeats -->
+
+    <owl:DatatypeProperty rdf:about="http://www.unipd.albertopiva.it/db2/airtrafficOntology#numberOfSeats">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.unipd.albertopiva.it/db2/airtrafficOntology#AircraftModel"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.unipd.albertopiva.it/db2/airtrafficOntology#Aircraft -->
+
+    <owl:Class rdf:about="http://www.unipd.albertopiva.it/db2/airtrafficOntology#Aircraft"/>
+    
+
+
+    <!-- http://www.unipd.albertopiva.it/db2/airtrafficOntology#AircraftModel -->
+
+    <owl:Class rdf:about="http://www.unipd.albertopiva.it/db2/airtrafficOntology#AircraftModel"/>
+    
+
+
+    <!-- http://www.unipd.albertopiva.it/db2/airtrafficOntology#Airline -->
+
+    <owl:Class rdf:about="http://www.unipd.albertopiva.it/db2/airtrafficOntology#Airline"/>
+    
+
+
+    <!-- http://www.unipd.albertopiva.it/db2/airtrafficOntology#Airport -->
+
+    <owl:Class rdf:about="http://www.unipd.albertopiva.it/db2/airtrafficOntology#Airport"/>
+    
+
+
+    <!-- http://www.unipd.albertopiva.it/db2/airtrafficOntology#City -->
+
+    <owl:Class rdf:about="http://www.unipd.albertopiva.it/db2/airtrafficOntology#City"/>
+    
+
+
+    <!-- http://www.unipd.albertopiva.it/db2/airtrafficOntology#Flight -->
+
+    <owl:Class rdf:about="http://www.unipd.albertopiva.it/db2/airtrafficOntology#Flight"/>
+    
+
+
+    <!-- http://www.unipd.albertopiva.it/db2/airtrafficOntology#Manufacturer -->
+
+    <owl:Class rdf:about="http://www.unipd.albertopiva.it/db2/airtrafficOntology#Manufacturer"/>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi -->
+

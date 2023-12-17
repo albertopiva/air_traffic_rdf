@@ -1,0 +1,287 @@
+@prefix : <http://www.unipd.albertopiva.it/db2/airtrafficOntology#> .
+@prefix ato: <http://www.unipd.albertopiva.it/db2/airtrafficOntology#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.unipd.albertopiva.it/db2/airtrafficOntology> .
+
+<http://www.unipd.albertopiva.it/db2/airtrafficOntology> rdf:type owl:Ontology ;
+                                                          owl:imports <http://eulersharp.sourceforge.net/2003/03swap/countries> ;
+                                                          <http://purl.org/dc/elements/1.1/creator> "Alberto Piva - alberto.piva.8@studenti.unipd.it"^^xsd:string ,
+                                                                                                    "Gianmarco Prando - gianmarco.prando@studenti.unipd.it"^^xsd:string ,
+                                                                                                    "Laura Menotti - laura.menotti@studenti.unipd.it"^^xsd:string .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.unipd.albertopiva.it/db2/airtrafficOntology#arrives
+ato:arrives rdf:type owl:ObjectProperty ,
+                     owl:FunctionalProperty ,
+                     owl:AsymmetricProperty ;
+            rdfs:domain ato:Flight ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty ato:arrives ;
+                          owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                          owl:onClass ato:Airport
+                        ] ;
+            rdfs:range ato:Airport .
+
+
+###  http://www.unipd.albertopiva.it/db2/airtrafficOntology#belongsTo
+ato:belongsTo rdf:type owl:ObjectProperty ,
+                       owl:FunctionalProperty ,
+                       owl:AsymmetricProperty ;
+              rdfs:domain ato:City ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty ato:belongsTo ;
+                            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                            owl:onClass <http://sweet.jpl.nasa.gov/2.3/humanJurisdiction.owl#Country>
+                          ] ;
+              rdfs:range <http://sweet.jpl.nasa.gov/2.3/humanJurisdiction.owl#Country> .
+
+
+###  http://www.unipd.albertopiva.it/db2/airtrafficOntology#builtBy
+ato:builtBy rdf:type owl:ObjectProperty ,
+                     owl:AsymmetricProperty ;
+            rdfs:domain ato:AircraftModel ;
+            rdfs:range ato:Manufacturer .
+
+
+###  http://www.unipd.albertopiva.it/db2/airtrafficOntology#departs
+ato:departs rdf:type owl:ObjectProperty ,
+                     owl:FunctionalProperty ,
+                     owl:AsymmetricProperty ;
+            rdfs:domain ato:Flight ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty ato:departs ;
+                          owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                          owl:onClass ato:Airport
+                        ] ;
+            rdfs:range ato:Airport .
+
+
+###  http://www.unipd.albertopiva.it/db2/airtrafficOntology#hasNationality
+ato:hasNationality rdf:type owl:ObjectProperty ,
+                            owl:AsymmetricProperty ;
+                   rdfs:domain [ rdf:type owl:Class ;
+                                 owl:unionOf ( ato:Airline
+                                               ato:Manufacturer
+                                             )
+                               ] ;
+                   rdfs:range <http://sweet.jpl.nasa.gov/2.3/humanJurisdiction.owl#Country> .
+
+
+###  http://www.unipd.albertopiva.it/db2/airtrafficOntology#hasType
+ato:hasType rdf:type owl:ObjectProperty ,
+                     owl:FunctionalProperty ,
+                     owl:AsymmetricProperty ;
+            rdfs:domain ato:Aircraft ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty ato:hasType ;
+                          owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                          owl:onClass ato:AircraftModel
+                        ] ;
+            rdfs:range ato:AircraftModel .
+
+
+###  http://www.unipd.albertopiva.it/db2/airtrafficOntology#located
+ato:located rdf:type owl:ObjectProperty ,
+                     owl:FunctionalProperty ,
+                     owl:AsymmetricProperty ;
+            rdfs:domain ato:Airport ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty ato:located ;
+                          owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                          owl:onClass ato:City
+                        ] ;
+            rdfs:range ato:City .
+
+
+###  http://www.unipd.albertopiva.it/db2/airtrafficOntology#performedBy
+ato:performedBy rdf:type owl:ObjectProperty ,
+                         owl:FunctionalProperty ,
+                         owl:AsymmetricProperty ;
+                rdfs:domain ato:Flight ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty ato:performedBy ;
+                              owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                              owl:onClass ato:Airline
+                            ] ;
+                rdfs:range ato:Airline .
+
+
+###  http://www.unipd.albertopiva.it/db2/airtrafficOntology#performs
+ato:performs rdf:type owl:ObjectProperty ,
+                      owl:InverseFunctionalProperty ,
+                      owl:AsymmetricProperty ;
+             rdfs:domain ato:Aircraft ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty ato:performs ;
+                           owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                           owl:onClass ato:Aircraft
+                         ] ;
+             rdfs:range ato:Flight .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://www.unipd.albertopiva.it/db2/airtrafficOntology#actualArrival
+ato:actualArrival rdf:type owl:DatatypeProperty ,
+                           owl:FunctionalProperty ;
+                  rdfs:domain ato:Flight ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty ato:actualArrival ;
+                                owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                owl:onDataRange xsd:dateTime
+                              ] ;
+                  rdfs:range xsd:dateTime .
+
+
+###  http://www.unipd.albertopiva.it/db2/airtrafficOntology#actualOffBlock
+ato:actualOffBlock rdf:type owl:DatatypeProperty ,
+                            owl:FunctionalProperty ;
+                   rdfs:domain ato:Flight ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty ato:actualOffBlock ;
+                                 owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                 owl:onDataRange xsd:dateTime
+                               ] ;
+                   rdfs:range xsd:dateTime .
+
+
+###  http://www.unipd.albertopiva.it/db2/airtrafficOntology#airlineName
+ato:airlineName rdf:type owl:DatatypeProperty ;
+                rdfs:domain ato:Airline ;
+                rdfs:range rdfs:Literal .
+
+
+###  http://www.unipd.albertopiva.it/db2/airtrafficOntology#airportName
+ato:airportName rdf:type owl:DatatypeProperty ;
+                rdfs:domain ato:Airport ;
+                rdfs:range rdfs:Literal .
+
+
+###  http://www.unipd.albertopiva.it/db2/airtrafficOntology#airportType
+ato:airportType rdf:type owl:DatatypeProperty ;
+                rdfs:domain ato:Airport ;
+                rdfs:range rdfs:Literal .
+
+
+###  http://www.unipd.albertopiva.it/db2/airtrafficOntology#cityName
+ato:cityName rdf:type owl:DatatypeProperty ;
+             rdfs:domain ato:City ;
+             rdfs:range rdfs:Literal .
+
+
+###  http://www.unipd.albertopiva.it/db2/airtrafficOntology#distance
+ato:distance rdf:type owl:DatatypeProperty ,
+                      owl:FunctionalProperty ;
+             rdfs:domain ato:Flight ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty ato:distance ;
+                           owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                           owl:onDataRange xsd:negativeInteger
+                         ] ;
+             rdfs:range xsd:nonNegativeInteger .
+
+
+###  http://www.unipd.albertopiva.it/db2/airtrafficOntology#engineCount
+ato:engineCount rdf:type owl:DatatypeProperty ;
+                rdfs:domain ato:AircraftModel ;
+                rdfs:range xsd:nonNegativeInteger .
+
+
+###  http://www.unipd.albertopiva.it/db2/airtrafficOntology#engineType
+ato:engineType rdf:type owl:DatatypeProperty ;
+               rdfs:domain ato:AircraftModel ;
+               rdfs:range xsd:string .
+
+
+###  http://www.unipd.albertopiva.it/db2/airtrafficOntology#filedArrival
+ato:filedArrival rdf:type owl:DatatypeProperty ,
+                          owl:FunctionalProperty ;
+                 rdfs:domain ato:Flight ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty ato:filedArrival ;
+                               owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                               owl:onDataRange xsd:dateTime
+                             ] ;
+                 rdfs:range xsd:dateTime .
+
+
+###  http://www.unipd.albertopiva.it/db2/airtrafficOntology#filedOffBlock
+ato:filedOffBlock rdf:type owl:DatatypeProperty ,
+                           owl:FunctionalProperty ;
+                  rdfs:domain ato:Flight ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty ato:filedOffBlock ;
+                                owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                owl:onDataRange xsd:dateTime
+                              ] ;
+                  rdfs:range xsd:dateTime .
+
+
+###  http://www.unipd.albertopiva.it/db2/airtrafficOntology#manufacturerName
+ato:manufacturerName rdf:type owl:DatatypeProperty ;
+                     rdfs:domain ato:Manufacturer ;
+                     rdfs:range rdfs:Literal .
+
+
+###  http://www.unipd.albertopiva.it/db2/airtrafficOntology#marketSegment
+ato:marketSegment rdf:type owl:DatatypeProperty ,
+                           owl:FunctionalProperty ;
+                  rdfs:domain ato:Flight ;
+                  rdfs:range xsd:string .
+
+
+###  http://www.unipd.albertopiva.it/db2/airtrafficOntology#modelName
+ato:modelName rdf:type owl:DatatypeProperty ;
+              rdfs:domain ato:AircraftModel ;
+              rdfs:range rdfs:Literal .
+
+
+###  http://www.unipd.albertopiva.it/db2/airtrafficOntology#numberOfSeats
+ato:numberOfSeats rdf:type owl:DatatypeProperty ,
+                           owl:FunctionalProperty ;
+                  rdfs:domain ato:AircraftModel ;
+                  rdfs:range xsd:nonNegativeInteger .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.unipd.albertopiva.it/db2/airtrafficOntology#Aircraft
+ato:Aircraft rdf:type owl:Class .
+
+
+###  http://www.unipd.albertopiva.it/db2/airtrafficOntology#AircraftModel
+ato:AircraftModel rdf:type owl:Class .
+
+
+###  http://www.unipd.albertopiva.it/db2/airtrafficOntology#Airline
+ato:Airline rdf:type owl:Class .
+
+
+###  http://www.unipd.albertopiva.it/db2/airtrafficOntology#Airport
+ato:Airport rdf:type owl:Class .
+
+
+###  http://www.unipd.albertopiva.it/db2/airtrafficOntology#City
+ato:City rdf:type owl:Class .
+
+
+###  http://www.unipd.albertopiva.it/db2/airtrafficOntology#Flight
+ato:Flight rdf:type owl:Class .
+
+
+###  http://www.unipd.albertopiva.it/db2/airtrafficOntology#Manufacturer
+ato:Manufacturer rdf:type owl:Class .
+
+
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
